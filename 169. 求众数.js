@@ -32,4 +32,24 @@ var majorityElement = function (nums) {
 /**
  * 摩尔投票法
  * 先选择一个作为候选人,相同+1,不同-1,为0换候选人.因为是众数,大于1半,所以,最后候选人肯定>0
+ * [2,2,1,1,1,2,2],[6,5,5],[3,2,3]
  */
+
+/** time:144 ms */
+var agian = (nums) => {
+    let count = 0
+    let temp = undefined
+
+    for (let i = 0; i < nums.length; i++) {
+
+        if (count === 0) temp = nums[i]
+
+        if (temp === nums[i]) {
+            count++
+        } else {
+            count--
+        }
+    }
+
+    return temp
+}
